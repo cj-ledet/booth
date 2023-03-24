@@ -72,7 +72,7 @@ export default {
       tickets: [],
       currentTicket: null,
       currentIndex: -1,
-      id: ""
+      user_id: ""
     };
   },
   methods: {
