@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
 			            type: Sequelize.ARRAY(Sequelize.STRING)
 			          },
 		      user_id: {
-			      	    type: Sequelize.INTEGER
+			      	    type: Sequelize.STRING
 		      	   	  },
 		      status: { //True = open & False = closed
 			            type: Sequelize.BOOLEAN
