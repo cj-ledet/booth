@@ -18,7 +18,9 @@ exports.create = (req, res) => {
 	  const ticket = {
 	      subject: req.body.subject,
 	      severity: req.body.severity,
-	      user_id: req.body.user_id
+	      details: req.body.details,
+	      user_id: req.body.user_id,
+	      status: true
 	  };
 
 	  // Save Ticket in the database
@@ -42,14 +44,14 @@ exports.findAll = (req, res) => {
 
 	  Ticket.findAll({ where: condition })
 	    .then(data => {
-		          res.send(data);
-		        })
+	      res.send(data);
+	    })
 	    .catch(err => {
-		          res.status(500).send({
-				          message:
-				            err.message || "Some error occurred while retrieving tickets."
-				        });
-		        });
+	      res.status(500).send({
+	        message:
+	          err.message || "Some error occurred while retrieving tickets."
+	      });
+	    });
 };
 
 //Find a single Ticket with an id
@@ -57,33 +59,48 @@ exports.findOne = (req, res) => {
 	  const id = req.params.id;
 
 	  Ticket.findByPk(id)
-	    .then(data => {
-		          if (data) {
-				          res.send(data);
-				        } else {
-						        res.status(404).send({
-								          message: `Cannot find Ticket with id=${id}.`
-								        });
-						      }
-		        })
+	   .then(data => {
+	      if (data) {
+	        res.send(data);
+	      } else {
+	        res.status(404).send({
+	          message: `Cannot find Ticket with id=${id}.`
+	        });
+	      }
+	    })
 	    .catch(err => {
-		          res.status(500).send({
-				          message: "Error retrieving Ticket with id=" + id
-				        });
-		        });
+	      res.status(500).send({
+	        message: "Error retrieving Ticket with id=" + id
+	      });
+	    });
 };
 
 //Update a Ticket by the id in the request
 exports.update = (req, res) => {
-	  
+  const id = req.params.id;
+
+  Ticket.update(req.body, {
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Ticket was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update Ticket with id=${id}. Maybe Ticket was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Ticket with id=" + id
+      });
+    });
 };
 
 //Delete a Ticket with the specified id in the request
 exports.delete = (req, res) => {
 	  
-};
-
-//Delete all Tickets from the database.
-exports.deleteAll = (req, res) => {
-		  
 };
