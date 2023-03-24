@@ -46,7 +46,7 @@
           <label><strong>User ID:</strong></label> {{ currentTicket.user_id }}
         </div>
         <div>
-          <label><strong>User ID:</strong></label> {{ currentTicket.status }}
+          <label><strong>Open Case:</strong></label> {{ currentTicket.status }}
         </div>
 
         <a class="badge badge-warning"
@@ -57,7 +57,7 @@
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Ticket...</p>
+        <p>Select a Ticket...</p>
       </div>
     </div>
   </div>
