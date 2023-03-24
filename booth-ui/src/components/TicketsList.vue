@@ -20,9 +20,7 @@
           v-for="(ticket, index) in tickets"
           :key="index"
           @click="setActiveTicket(ticket, index)"
-        >
-          {{ ticket.id }}: {{ ticket.subject }}
-        </li>
+        >{{ ticket.id }}🎟 {{ ticket.subject }}</li>
       </ul>
 
     </div>
