@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveTicket(ticket, index)"
         >
-          {"ID:" +{ ticket.id } + " " + { ticket.subject }}
+          ID:{{ ticket.id }}   {{ ticket.subject }}
         </li>
       </ul>
 
