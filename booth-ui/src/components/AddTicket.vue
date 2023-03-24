@@ -1,8 +1,9 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-      <div class="form-group">
-        <label for="title">Subject</label>
+      <h4>Ticket</h4>
+      <div class="form-group">        
+        <label for="subject">Subject</label>
         <input
           type="text"
           class="form-control"
@@ -14,13 +15,35 @@
       </div>
 
       <div class="form-group">
-        <label for="description">Severity</label>
+        <label for="severity">Severity</label>
         <input
           class="form-control"
           id="severity"
           required
           v-model="ticket.severity"
           name="severity"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="details">Details</label>
+        <input
+          class="form-control"
+          id="details"
+          required
+          v-model="ticket.details"
+          name="details"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="user_id">User ID</label>
+        <input
+          class="form-control"
+          id="user_id"
+          required
+          v-model="ticket.user_id"
+          name="user_id"
         />
       </div>
 
@@ -45,6 +68,7 @@ export default {
         id: null,
         subject: "",
         severity: "",
+	details: "",
         user_id: ""
       },
       submitted: false
@@ -54,8 +78,9 @@ export default {
     saveTicket() {
       var data = {
         subject: this.ticket.subject,
-        description: this.ticket.severity,
-		user_id: this.ticket.user_id
+        severity: this.ticket.severity,
+	details: this.ticket.details,
+	user_id: this.ticket.user_id
       };
 
       TicketDataService.create(data)
