@@ -16,9 +16,22 @@
       </div>
 
       <div class="form-group">
-        <label><strong>User ID</strong></label>
+        <label>Details</label>
+         <input type="text" class="form-control" id="details"
+          v-model="currentTicket.details"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>User ID</label>
          <input type="text" class="form-control" id="user_id"
           v-model="currentTicket.user_id"
+        />
+      </div>
+      <div class="form-group">
+        <label>Open Ticket</label>
+         <input type="text" class="form-control" id="status"
+          v-model="currentTicket.status"
         />
       </div>
     </form>
