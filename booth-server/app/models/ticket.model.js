@@ -6,9 +6,18 @@ module.exports = (sequelize, Sequelize) => {
 		      severity: {
 			            type: Sequelize.STRING
 			          },
+		      details: {
+			            type: Sequelize.STRING
+		                  },
+		      notes: {
+			            type: Sequelize.ARRAY(Sequelize.STRING)
+			          },
 		      user_id: {
-			      	    type: Sequelize.STRING
-		      	   	  }
+			      	    type: Sequelize.INTEGER
+		      	   	  },
+		      status: { //True = open & False = closed
+			            type: Sequelize.BOOLEAN
+			          }
 		    });
 
 	  return Ticket;

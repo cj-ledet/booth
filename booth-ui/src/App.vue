@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Booth Ticket Tracker</router-link>
+      <router-link to="/" class="navbar-brand">Booth</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/tickets" class="nav-link">Tickets</router-link>
+          <router-link to="/tickets" class="nav-link">Dashboard</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/add" class="nav-link">Add</router-link>
