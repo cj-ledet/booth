@@ -2,8 +2,7 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by User ID"
-          v-model="user_id"/>
+        <input type="text" class="form-control" placeholder="Search by User ID"/>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button"
             @click="searchUserTickets"
@@ -22,7 +21,7 @@
           :key="index"
           @click="setActiveTicket(ticket, index)"
         >
-          {{ ticket.id }}
+          {{ ticket.id }}: {{ ticket.subject }}
         </li>
       </ul>
 
