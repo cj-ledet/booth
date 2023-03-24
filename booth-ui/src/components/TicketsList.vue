@@ -22,7 +22,7 @@
           :key="index"
           @click="setActiveTicket(ticket, index)"
         >
-          {{ ticket.user_id }}
+          {{ ticket.id }}
         </li>
       </ul>
 
@@ -31,13 +31,22 @@
       <div v-if="currentTicket">
         <h4>Ticket</h4>
         <div>
+          <label><strong>Ticket ID:</strong></label> {{ currentTicket.id }}
+        </div>
+        <div>
           <label><strong>Subject:</strong></label> {{ currentTicket.subject }}
         </div>
         <div>
           <label><strong>Severity:</strong></label> {{ currentTicket.severity }}
         </div>
         <div>
+          <label><strong>Details:</strong></label> {{ currentTicket.details }}
+        </div>
+        <div>
           <label><strong>User ID:</strong></label> {{ currentTicket.user_id }}
+        </div>
+        <div>
+          <label><strong>User ID:</strong></label> {{ currentTicket.status }}
         </div>
 
         <a class="badge badge-warning"
@@ -64,7 +73,7 @@ export default {
       tickets: [],
       currentTicket: null,
       currentIndex: -1,
-      user_id: ""
+      id: ""
     };
   },
   methods: {
