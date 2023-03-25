@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://www.boothtickets.com:8080/api",
+  baseURL: "http://www.boothtickets.com/api",
   headers: {
     "Content-type": "application/json"
   }
