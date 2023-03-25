@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 const db = require("./app/models");
-db.sequelize.sync()
+db.sequelize.sync({force: true}) //Remove forced true when done with development 
   .then(() => {
     console.log("Synced db.");
     initial();
