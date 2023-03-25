@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     retrieveTickets() {
-      TicketDataService.findByUser($store.state.auth.user.id)
+      TicketDataService.findByUser(this.$store.state.auth.user.id)
         .then(response => {
           this.tickets = response.data;
           console.log(response.data);
