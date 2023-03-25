@@ -24,6 +24,10 @@ app.get("/", (req, res) => {
 	  res.json({message: "testing"});
 });
 
+app.get('/hello', (req, res) => {
+  res.send('Hello, world!');
+});
+
 const db = require("./app/models");
 const Role = db.role;
 
@@ -39,16 +43,10 @@ require("./app/routes/ticket.routes")(app);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
-// Set up HTTPS server
-const options = {
-  key: fs.readFileSync('/etc/apache2/certs/private.key.pem'),
-  cert: fs.readFileSync('/etc/apache2/certs/domain.cert.pem')
-};
-
 //set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
-https.createServer(options, app).listen(PORT, () => {
+http.createServer(app).listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
