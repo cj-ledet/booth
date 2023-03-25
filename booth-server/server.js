@@ -1,12 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+//const cors = require("cors");
 
 const app = express();
 
-var corsOptions = {
-	  origin: "*" //"https://boothtickets.com"
-};
+//var corsOptions = {
+//	  origin: "*" //"https://boothtickets.com"
+//};
 
 //app.use(cors(corsOptions));
 
