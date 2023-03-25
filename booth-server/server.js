@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //simple route
 app.get("/", (req, res) => {
+	  res.setHeader('Access-Control-Allow-Origin', '*');
 	  res.json({message: "testing"});
 });
 
