@@ -1,3 +1,5 @@
+const https = require('https');
+const fs = require('fs');
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -37,8 +39,22 @@ require("./app/routes/ticket.routes")(app);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
+// Set up HTTPS server
+const options = {
+  key: fs.readFileSync('/etc/apache2/certs/private.key.pem'),
+  cert: fs.readFileSync('/etc/apache2/certs/domain.cert.pem')
+};
+
 //set port, listen for requests
+<<<<<<< HEAD
 const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
 	  console.log(`Server is running on port ${PORT}.`);
 });
+=======
+const PORT = process.env.PORT || 8080;
+
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+}
+>>>>>>> 31477ed60592ae24145bd2afe68f3e4bb2625c53
