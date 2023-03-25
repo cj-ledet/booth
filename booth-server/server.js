@@ -8,6 +8,11 @@ var corsOptions = {
 	  origin: "*" //"https://boothtickets.com"
 };
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.use(cors(corsOptions));
 
 //parse requests of content-type - application/json
