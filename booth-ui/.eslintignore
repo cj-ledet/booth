@@ -1,1 +1,8 @@
 src/components/Ticket.vue
+src/components/BoardAdmin.vue
+src/components/BoardModerator.vue
+src/components/BoardUser.vue
+src/components/Home.vue
+src/components/Login.vue
+src/components/Profile.vue
+src/components/Register.vue
