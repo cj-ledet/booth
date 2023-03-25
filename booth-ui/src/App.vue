@@ -17,12 +17,6 @@
         <li class="nav-item">
           <router-link v-if="currentUser" to="/user" class="nav-link">Dashboard</router-link>
         </li>
-        <li class="nav-item">
-          <router-link to="/tickets" class="nav-link">Tickets Testing</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/add" class="nav-link">Add Ticket</router-link>
-        </li>
       </div>
 
       <div v-if="!currentUser" class="navbar-nav ml-auto">
