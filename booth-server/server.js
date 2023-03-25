@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-	  origin: "https://ec2-54-241-133-168.us-west-1.compute.amazonaws.com"
+	  origin: "https://boothtickets.com/"
 };
 
 app.use(cors(corsOptions));
