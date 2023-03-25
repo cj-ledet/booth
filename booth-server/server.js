@@ -8,7 +8,7 @@ var corsOptions = {
 	  origin: "*" //"https://boothtickets.com"
 };
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //parse requests of content-type - application/json
 app.use(bodyParser.json());
