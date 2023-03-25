@@ -25,10 +25,28 @@ const db = require("./app/models");
 db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
+    initial();
   })
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
   });
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+ 
+  Role.create({
+    id: 2,
+    name: "moderator"
+  });
+ 
+  Role.create({
+    id: 3,
+    name: "admin"
+  });
+}
 
 require("./app/routes/ticket.routes")(app);
 
