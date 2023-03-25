@@ -44,25 +44,21 @@ const routes = [
     {
       path: "/profile",
       name: "profile",
-      // lazy-loaded
       component: Profile,
     },
     {
       path: "/admin",
       name: "admin",
-      // lazy-loaded
       component: BoardAdmin,
     },
     {
       path: "/mod",
       name: "moderator",
-      // lazy-loaded
       component: BoardModerator,
     },
     {
       path: "/user",
       name: "user",
-      // lazy-loaded
       component: BoardUser,
     },    
 ];
@@ -73,7 +69,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register', '/home', '/tickets', '/tickets/:id', '/add'];
+  const publicPages = ['/login', '/register', '/home'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 
