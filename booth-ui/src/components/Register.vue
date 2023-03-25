@@ -1,25 +1,21 @@
 <template>
-  <div class="col-md-12">
+  <div class="loginbox">
+    <h1>Signup</h1>
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username"><strong>Username</strong></label>
             <Field name="username" type="text" class="form-control" />
             <ErrorMessage name="username" class="error-feedback" />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email"><strong>Email</strong></label>
             <Field name="email" type="email" class="form-control" />
             <ErrorMessage name="email" class="error-feedback" />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password"><strong>Password</strong></label>
             <Field name="password" type="password" class="form-control" />
             <ErrorMessage name="password" class="error-feedback" />
           </div>
@@ -122,5 +118,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.loginbox {
+    width: 320px;
+    height: 420px;
+    background: #ffffff;
+    color: #000000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 60px 30px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
 </style>
