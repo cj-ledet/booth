@@ -1,17 +1,5 @@
 <template>
   <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by User ID" v-model="user_id"/>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button"
-            @click="searchUserTickets"
-          >
-            Search
-          </button>
-        </div>
-      </div>
-    </div>
     <div class="col-md-6">
       <h4>Tickets List</h4>
       <ul class="list-group">
@@ -64,7 +52,7 @@
 import TicketDataService from "../services/TicketDataService";
 
 export default {
-  name: "ticket-list",
+  name: "tickets-list",
   data() {
     return {
       tickets: [],
