@@ -35,17 +35,6 @@
           name="details"
         />
       </div>
-      
-      <div class="form-group">
-        <label for="user_id">User ID</label>
-        <input
-          class="form-control"
-          id="user_id"
-          required
-          v-model="ticket.user_id"
-          name="user_id"
-        />
-      </div>
 
       <button @click="saveTicket" class="btn btn-success">Submit</button>
     </div>
@@ -80,7 +69,7 @@ export default {
         subject: this.ticket.subject,
         severity: this.ticket.severity,
 	details: this.ticket.details,
-	user_id: this.ticket.user_id
+	user_id: this.$store.state.auth.user.id
       };
 
       TicketDataService.create(data)
