@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{'background-image':'url(assets/background1.jpg)'}">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href="/" class="navbar-brand">Booth</a>
       <div class="navbar-nav mr-auto">
@@ -55,10 +55,6 @@
     </div>
   </div>
 </template>
-
-<style>
-  background: url("assets/background1.jpg");
-</style>
 
 <script>
 export default {
