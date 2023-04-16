@@ -1,4 +1,4 @@
-<body>
+
   <header>
     <div class="welcome-text">
       <h1>Welcome to <span>Booth</span></h1>
@@ -6,7 +6,7 @@
       <a href="#">Learn About Booth</a>      
     </div>
   </header>
-</body>
+
 <style>
 header{
   background: url("../assets/background1.jpg");
