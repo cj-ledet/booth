@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'background-image':'url(../assets/background1.jpg)'}">
+  <div>
   <header>
     <div class="welcome-text" >
       <h1>Welcome to <span>Booth</span></h1>
@@ -10,9 +10,8 @@
   </div>
 </template>
 <style>
-template{
-	height: 100%;
-	width: 100%;
+body{
+	background: url("../assets/background1.jpg");
 }
 header{
 	height: 80vh;
