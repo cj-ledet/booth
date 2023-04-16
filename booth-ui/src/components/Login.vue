@@ -64,7 +64,7 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/profile");
+      this.$router.push("/user");
     }
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
 
       this.$store.dispatch("auth/login", user).then(
         () => {
-          this.$router.push("/profile");
+          this.$router.push("/user");
         },
         (error) => {
           this.loading = false;
@@ -104,10 +104,33 @@ export default {
     padding: 60px 30px;
 }
 
-h1 {
+.loginbox > h1 {
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
+    font-weight: bold;
+}
+
+.loginbox label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.loginbox field[type="text"],
+.loginbox field[type="password"] {
+    border: none;
+    border-bottom: 1px solid #000000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000000;
+    font-size: 16px;
 }
 </style>
