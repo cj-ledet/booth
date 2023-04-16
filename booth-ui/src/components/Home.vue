@@ -11,8 +11,7 @@
 <style>
 header{
   background: url("../assets/background1.jpg");
-	height: 100%;
-	width: 100%;
+	height: 100vh;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
