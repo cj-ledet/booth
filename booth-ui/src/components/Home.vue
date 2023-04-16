@@ -8,10 +8,6 @@
   </header>
 </body>
 <style>
-*{
-  margin: 0;
-  padding: 0;
-}
 header{
   background: url("../assets/background1.jpg");
 	height: 100vh;
