@@ -8,6 +8,10 @@
   </header>
 </template>
 <style>
+template{
+	height: 100%;
+	width: 100%;
+}
 header{
   background: url("../assets/background1.jpg");
 	height: 100vh;
