@@ -102,6 +102,7 @@ export default {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 60px 30px;
+    border-width: 0;
 }
 
 .loginbox > h1 {
