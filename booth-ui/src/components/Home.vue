@@ -13,9 +13,7 @@ template{
 	width: 100%;
 }
 header{
-  background: url("../assets/background1.jpg");
-	height: 100vh;
-	width: 100%;
+	height: 80vh;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
