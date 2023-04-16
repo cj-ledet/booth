@@ -57,7 +57,7 @@
 </template>
 
 <style>
-  background: url("../assets/background1.jpg");
+  background: url("assets/background1.jpg");
 </style>
 
 <script>
