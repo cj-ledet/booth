@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'background-image':'url(assets/background1.jpg)'}">
+  <div :style="{'background-image':'url(../assets/background1.jpg)'}">
   <header>
     <div class="welcome-text" >
       <h1>Welcome to <span>Booth</span></h1>
