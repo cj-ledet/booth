@@ -1,14 +1,17 @@
-<template>
-  <header>
+<body>
+<header>
     <div class="welcome-text">
       <h1>Welcome to <span>Booth</span></h1>
       <a href="#">Start Now</a><br>
       <a href="#">Learn About Booth</a>      
     </div>
-  </header>
-</template>
+</header>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+}
 header{
   background: url("../assets/background1.jpg");
 	height: 100vh;
