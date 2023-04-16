@@ -15,6 +15,7 @@ body{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+	background-attachment: fixed;
 }
 header{
 	height: 80vh;
