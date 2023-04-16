@@ -56,6 +56,10 @@
   </div>
 </template>
 
+<style>
+  background: url("../assets/background1.jpg");
+</style>
+
 <script>
 export default {
   computed: {
