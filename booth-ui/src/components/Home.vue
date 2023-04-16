@@ -11,7 +11,7 @@
 </template>
 <style>
 body{
-	background: url("../assets/background1.jpg") center center cover no-repeat;
+	background: url("../assets/background1.jpg");
 }
 header{
 	height: 80vh;
