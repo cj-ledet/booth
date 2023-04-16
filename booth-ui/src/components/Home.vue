@@ -1,9 +1,17 @@
 <template>
-  <div class="container">
-    <header class="jumbotron">
-      <h3>{{ content }}</h3>
-    </header>
-  </div>
+  <header>
+    <div class="wrapper">
+        <div class="logoPic">
+           <!-- <<img src="images/ticket.png" alt=""> -->
+        </div>
+    </div>
+
+    <div class="welcome-text">
+      <h1>Welcome to <span>Booth</span></h1>
+      <a href="#">Start Now</a><br>
+      <a href="#">Learn About Booth</a>      
+    </div>
+  </header>
 </template>
 
 <script>
