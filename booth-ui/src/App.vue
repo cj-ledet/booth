@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{'background-image':'url(assets/background1.jpg)'}">
+  <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href="/" class="navbar-brand">Booth</a>
       <div class="navbar-nav mr-auto">
