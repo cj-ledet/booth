@@ -14,7 +14,7 @@
   padding: 0;
 }
 header{
-  background: url("images/background1.jpg");
+  background: url("../assets/background1.jpg");
 	height: 100vh;
 	-webkit-background-size: cover;
 	background-size: cover;
