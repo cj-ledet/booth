@@ -1,13 +1,4 @@
-
-
 <template>
-  <head>
-  <meta charset="UTF-8">
-    <title>Booth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../assets/style.css">    
-  </head>   
   <header>
     <div class="welcome-text">
       <h1>Welcome to <span>Booth</span></h1>
@@ -16,6 +7,51 @@
     </div>
   </header>
 </template>
+
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+}
+header{
+  background: url("images/background1.jpg");
+	height: 100vh;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+.welcome-text {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	margin: 20% 30%;
+	text-align: center;
+}
+.welcome-text h1 {
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 60px;
+}
+.welcome-text h1 span {
+	color: #ff0000;
+}
+.welcome-text a {
+	border: 1px solid #fff;
+	padding: 10px 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-top: 20px;
+	display: inline-block;
+	color: #fff;
+}
+.welcome-text a:hover {
+	background: #fff;
+	color: #333;
+}
+</style>
 
 <script>
 import UserService from "../services/user.service";
