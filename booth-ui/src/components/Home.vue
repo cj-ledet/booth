@@ -9,13 +9,10 @@
 </template>
 
 <style>
-  *{
-  margin: 0;
-  padding: 0;
-}
 header{
   background: url("../assets/background1.jpg");
-	height: 100vh;
+	height: 100%;
+	width: 100%;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
