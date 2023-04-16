@@ -12,6 +12,9 @@
 <style>
 body{
 	background: url("../assets/background1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 header{
 	height: 80vh;
