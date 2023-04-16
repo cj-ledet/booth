@@ -1,11 +1,13 @@
+<head>
+  <meta charset="UTF-8">
+    <title>Booth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/style.css">    
+</head>
+
 <template>
   <header>
-    <div class="wrapper">
-        <div class="logoPic">
-           <!-- <<img src="images/ticket.png" alt=""> -->
-        </div>
-    </div>
-
     <div class="welcome-text">
       <h1>Welcome to <span>Booth</span></h1>
       <a href="#">Start Now</a><br>
