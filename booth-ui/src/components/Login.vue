@@ -1,7 +1,7 @@
 <template>
   <div class="loginbox">
     <h1>Login</h1>
-    <div class="card card-container">
+    <div class="card card-container" style="border-width: 0;">
       <Form @submit="handleLogin" :validation-schema="schema">
         <div class="form-group">
           <label for="username"><strong>Username</strong></label>
@@ -102,7 +102,6 @@ export default {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 60px 30px;
-    border-width: 0;
 }
 
 .loginbox > h1 {
