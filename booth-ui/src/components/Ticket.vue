@@ -1,4 +1,4 @@
-<template style="color: white;">
+<template>
   <div v-if="currentTicket" class="edit-form">
     <h4>Ticket</h4>
     <form>
