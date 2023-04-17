@@ -1,5 +1,5 @@
-<template>
-  <div v-if="currentTicket" class="edit-form" style="color: white;">
+<template style="color: white;">
+  <div v-if="currentTicket" class="edit-form">
     <h4>Ticket</h4>
     <form>
       <div class="form-group">
