@@ -1,7 +1,7 @@
 <template>
   <div class="loginbox">
     <h1>Signup</h1>
-    <div class="card card-container" style="border-width: 0;">
+    <div class="card card-container" style="border-width: 0; border-radius: 20px;">
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
