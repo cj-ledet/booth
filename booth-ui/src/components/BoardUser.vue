@@ -35,7 +35,7 @@
         </div>
 
         <a class="badge badge-warning"
-          :href="'/tickets/' + currentTicket.id"
+          :href="'/user/' + currentTicket.id"
         >
           Edit
         </a>
