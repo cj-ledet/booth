@@ -1,6 +1,5 @@
 <template>
-<p> test </p>
-  <div v-if="currentTicket" class="edit-form">
+  <div v-if="currentTicket" class="edit-form" style="color: white;">
     <h4>Ticket</h4>
     <form>
       <div class="form-group">
@@ -78,7 +77,6 @@ export default {
   },
   methods: {
     getTicket(id) {
-      console.log(id);
       TicketDataService.get(id)
         .then(response => {
           this.currentTicket = response.data;
@@ -123,6 +121,8 @@ export default {
   mounted() {
     this.message = '';
     this.getTicket(this.$route.params.id);
+    console.log(this.$route.params.id);
+    console.log("test");
   }
 };
 </script>
