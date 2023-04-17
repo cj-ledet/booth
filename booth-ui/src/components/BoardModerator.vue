@@ -106,17 +106,7 @@ export default {
     this.retrieveTickets();
   }
 };
-</script>
 
-<style>
-.list {
-  text-align: left;
-  max-width: 750px;
-  margin: auto;
-}
-</style>
-
-<script>
 import UserService from "../services/user.service";
 
 export default {
@@ -143,3 +133,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+</style>
