@@ -62,6 +62,7 @@
 
 <script>
 import TicketDataService from "../services/TicketDataService";
+import UserService from "../services/user.service";
 export default {
   name: "tickets-list",
   data() {
@@ -70,6 +71,12 @@ export default {
       currentTicket: null,
       currentIndex: -1,
       user_id: ""
+    };
+  },
+  name: "Moderator",
+  data() {
+    return {
+      content: "",
     };
   },
   methods: {
@@ -103,20 +110,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveTickets();
-  }
-};
-
-import UserService from "../services/user.service";
-
-export default {
-  name: "Moderator",
-  data() {
-    return {
-      content: "",
-    };
-  },
-  mounted() {
+    this.retrieveTickets(),
     UserService.getModeratorBoard().then(
       (response) => {
         this.content = response.data;
@@ -130,7 +124,7 @@ export default {
           error.toString();
       }
     );
-  },
+  }
 };
 </script>
 
