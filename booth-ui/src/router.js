@@ -15,7 +15,7 @@ const routes = [
       component: () => import("./components/TicketsList")
     },
     {
-      path: "/tickets/:id",
+      path: "/user/:id",
       name: "ticket-details",
       component: () => import("./components/Ticket")
     },
