@@ -1,10 +1,17 @@
-const http = require('http');
+const http = require('https');
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
+const port = 443;
+
+const options = {
+  key: fs.readFileSync('certs/private.key.pem'),
+  cert: fs.readFileSync('certs/domain.cert.pem')
+};
 
 var corsOptions = {
 	  origin: "*" //"https://boothtickets.com"
@@ -40,10 +47,7 @@ require("./app/routes/ticket.routes")(app);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
-//set port, listen for requests
-const PORT = process.env.PORT || 443;
-
-http.createServer(app).listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+https.createServer(options, app).listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
 });
 
