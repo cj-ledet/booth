@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Tickets List</h4>
+      <h4 style="color: white;">Tickets List</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
@@ -24,7 +24,7 @@
       </ul>
 
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="color: white;">
       <div v-if="currentTicket">
         <h4>Ticket</h4>
         <div>
