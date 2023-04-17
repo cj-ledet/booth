@@ -78,7 +78,6 @@ export default {
       TicketDataService.getAll()
         .then(response => {
           this.tickets = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
@@ -100,7 +99,6 @@ export default {
       TicketDataService.findByUser(this.user_id)
         .then(response => {
           this.tickets = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
