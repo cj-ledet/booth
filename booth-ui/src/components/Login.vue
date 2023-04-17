@@ -92,8 +92,8 @@ export default {
 
 <style>
 .loginbox {
-    width: 320px;
-    height: 420px;
+    width: 340px;
+    height: 460px;
     background: #ffffff;
     color: #000000;
     top: 50%;
