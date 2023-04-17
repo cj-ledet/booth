@@ -1,5 +1,5 @@
 <template>
-  <div class="loginbox">
+  <div class="loginbox" style="height: 380px;">
     <h1>Login</h1>
     <div class="card card-container" style="border-width: 0;">
       <Form @submit="handleLogin" :validation-schema="schema">
