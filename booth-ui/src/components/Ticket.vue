@@ -121,8 +121,6 @@ export default {
   mounted() {
     this.message = '';
     this.getTicket(this.$route.params.id);
-    console.log(this.$route.params.id);
-    console.log("test");
   }
 };
 </script>
