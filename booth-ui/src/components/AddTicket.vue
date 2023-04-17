@@ -1,5 +1,5 @@
 <template>
-  <div class="submit-form">
+  <div class="submit-form" style="color: white;">
     <div v-if="!submitted">
       <h4>Ticket</h4>
       <div class="form-group">        
