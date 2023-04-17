@@ -77,6 +77,7 @@ export default {
   },
   methods: {
     getTicket(id) {
+      console.log(id);
       TicketDataService.get(id)
         .then(response => {
           this.currentTicket = response.data;
