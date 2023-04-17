@@ -28,7 +28,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //simple route
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/user', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/add', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/mod', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
