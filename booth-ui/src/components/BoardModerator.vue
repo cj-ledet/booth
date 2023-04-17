@@ -103,8 +103,8 @@ export default {
     }
   },
   mounted() {
-    this.retrieveTickets(),
-  },
+    this.retrieveTickets();
+  }
 };
 </script>
 
