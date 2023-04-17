@@ -10,11 +10,6 @@ const BoardUser = () => import("./components/BoardUser.vue")
 
 const routes = [
     {
-      alias: "/tickets",
-      name: "tickets",
-      component: () => import("./components/TicketsList")
-    },
-    {
       path: "/tickets/:id",
       name: "ticket-details",
       component: () => import("./components/Ticket")
@@ -69,7 +64,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register', '/home'];
+  const publicPages = ['/login', '/register', '/home', '/'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 
