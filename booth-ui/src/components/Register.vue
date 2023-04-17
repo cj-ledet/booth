@@ -1,7 +1,7 @@
 <template>
   <div class="loginbox">
     <h1>Signup</h1>
-    <div class="card card-container">
+    <div class="card card-container" style="border-width: 0;">
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
@@ -117,25 +117,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.loginbox {
-    width: 320px;
-    height: 420px;
-    background: #ffffff;
-    color: #000000;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    box-sizing: border-box;
-    padding: 60px 30px;
-}
-
-h1 {
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-}
-</style>
