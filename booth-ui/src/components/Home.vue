@@ -3,7 +3,7 @@
   <header>
     <div class="welcome-text" >
       <h1>Welcome to <span>Booth</span></h1>
-      <a href="/register">Start Now</a><br>
+      <a href="/register">Signup Now</a><br>
       <a href="#">Learn About Booth</a>      
     </div>
   </header>
