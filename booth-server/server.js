@@ -14,7 +14,7 @@ const options = {
 };
 
 var corsOptions = {
-	  origin: "*" //"https://boothtickets.com"
+	  origin: "https://boothtickets.com"
 };
 
 app.use(cors(corsOptions));
