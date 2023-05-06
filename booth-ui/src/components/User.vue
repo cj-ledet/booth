@@ -35,7 +35,7 @@
 import UserService from "../services/user.service";
 
 export default {
-  name: "user",
+  name: "userView",
   data() {
     return {
       currentUser: null,
