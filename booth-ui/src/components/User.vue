@@ -33,9 +33,9 @@
 
 <script>
 import UserService from "../services/user.service";
-
+/* eslint-disable */
 export default {
-  name: "userView",
+  name: "user",
   data() {
     return {
       currentUser: null,
