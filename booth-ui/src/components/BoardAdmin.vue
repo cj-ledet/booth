@@ -34,7 +34,7 @@
       </div>
       <div v-else>
         <br />
-        <p style="color: white; font-size: 1.5em;">Select a Ticket...</p>
+        <p style="color: white; font-size: 1.5em;">Select a User...</p>
       </div>
     </div>
   </div>
