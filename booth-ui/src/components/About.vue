@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
     <div class="wrapper">
       <div class="About">
