@@ -7,6 +7,7 @@ const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardModerator = () => import("./components/BoardModerator.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
+const User = () => import("./components/User.vue")
 
 const routes = [
     {
@@ -49,7 +50,7 @@ const routes = [
     {
       path: "/admin/:id",
       name: "admin",
-      component: BoardAdmin,
+      component: User,
     },
     {
       path: "/mod",
