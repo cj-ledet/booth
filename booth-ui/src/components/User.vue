@@ -83,7 +83,7 @@ export default {
           this.currentUser = user.data;
           this.currentUser.roles.forEach(function(role) {
             if (role == "moderator") { this.isMod = true; } 
-            else { this.isMode = false; }
+            else { this.isMod = false; }
             if (role == "admin") { this.isAdmin = true; } 
             else { this.isAdmin = false; }
           });
