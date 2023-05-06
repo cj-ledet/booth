@@ -58,8 +58,9 @@ exports.adminBoardGetUser = (req, res) => {
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
   const id = req.params.id;
-  
-  if (req.body.roles[0] == "addMod") {
+ if ('roles' in req.body && req.body.roles.length > 0) {
+  const roles = req.body.roles;
+  if (roles[0] == "addMod") {
     Role.findByPk(2)
       .then(role => {
         User.addRole(role)
@@ -80,7 +81,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       })    
-  } else if (req.body.roles[0] == "removeMod") {
+  } else if (roles[0] == "removeMod") {
     Role.findByPk(2)
       .then(role => {
         User.removeRole(role)
@@ -101,7 +102,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (req.body.roles[0] == "addAdmin") {
+  } else if (roles[0] == "addAdmin") {
     Role.findByPk(3)
       .then(role => {
         User.addRole(role)
@@ -122,7 +123,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (req.body.roles[0] == "removeAdmin") {
+  } else if (roles[0] == "removeAdmin") {
     Role.findByPk(3)
       .then(role => {
         User.removeRole(role)
@@ -143,7 +144,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else {
+  } 
+ } else {
     User.update(req.body, {
       where: { id: id }
     })
