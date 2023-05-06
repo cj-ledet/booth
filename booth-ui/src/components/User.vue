@@ -116,8 +116,9 @@ export default {
     },
     
     updateAdmin(status) {
-      if (status) { let role = { roles: [ "addAdmin" ] }; } 
-      else { let role = { roles: [ "removeAdmin" ] }; }
+      let role = "";
+      if (status) { role = { roles: [ "addAdmin" ] }; } 
+      else { role = { roles: [ "removeAdmin" ] }; }
       UserService.updateUser(this.currentUser.id, role)
         .then(response => {
           this.message = response.message;
