@@ -81,7 +81,7 @@ export default {
       UserService.getUser(id)
         .then(user => {
           this.currentUser = user.data;
-          this.currentUser.roles.forEach(function(role) {
+          this.currentUser.roles.forEach(role => {
             if (role == "moderator") { this.isMod = true; } 
             else { this.isMod = false; }
             if (role == "admin") { this.isAdmin = true; } 
