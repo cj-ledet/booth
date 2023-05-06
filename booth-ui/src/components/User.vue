@@ -113,6 +113,7 @@ export default {
         .catch(e => {
           this.message = 'Error: Unable to update user role!';
         });
+        this.getUser(this.$route.params.id);
     },
     
     updateAdmin(status) {
@@ -126,6 +127,7 @@ export default {
         .catch(e => {
           this.message = 'Error: Unable to update user role!';
         });
+        this.getUser(this.$route.params.id);
     },
     
   },
