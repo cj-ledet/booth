@@ -56,6 +56,7 @@ export default {
   data() {
     return {
       tickets: [],
+      closedTickets: [],
       currentTicket: null,
       currentIndex: -1,
     };
@@ -64,8 +65,8 @@ export default {
     retrieveTickets() {
       TicketDataService.findByUser(this.$store.state.auth.user.id)
         .then(response => {
-          this.tickets = response.data;
-          console.log(response.data);
+          this.tickets = response.data.filter(ticket => ticket.status === true);
+          this.closedTickets = response.data.filter(ticket => ticket.status === false);
         })
         .catch(e => {
           console.log(e);
