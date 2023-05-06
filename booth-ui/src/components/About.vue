@@ -12,7 +12,7 @@
       </div>
       <div class="text-box">
         <h2>How to make an Account </h2>
-        <img src="images/signUp.png" class="image1">
+        <img src="../assets/signUp.png" class="image1">
         <p>All you need to do is click Sign Up on the top left 
         <br> of the header to start. Next, choose a Username, 
         <br> Email, and password. You should be able to now start
@@ -27,7 +27,7 @@
       </div>
       <div class="text-box">
         <h2>Creating a Ticket </h2>
-        <img src="images/MakeTicket.png" class="image2">
+        <img src="../assets/MakeTicket.png" class="image2">
         <p>To create a ticket, first you need to assign
         <br> a Subject. This is the initial Title of all Tickets.
         <br> Next, you assign a level of Severity. The levels
