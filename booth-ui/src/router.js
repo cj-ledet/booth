@@ -8,6 +8,7 @@ const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardModerator = () => import("./components/BoardModerator.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
 const User = () => import("./components/User.vue")
+const About = () => import("./components/About.vue")
 
 const routes = [
     {
@@ -28,6 +29,10 @@ const routes = [
     {
       path: "/home",
       component: Home,
+    },
+    {
+      path: "/about",
+      component: About,
     },
     {
       path: "/login",
