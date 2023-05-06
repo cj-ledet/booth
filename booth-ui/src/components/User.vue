@@ -65,7 +65,7 @@
 
 <script>
 import UserService from "../services/user.service";
-/* eslint-disable */
+
 export default {
   name: "user",
   data() {
