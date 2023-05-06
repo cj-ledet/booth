@@ -13,7 +13,7 @@ exports.userBoard = (req, res) => {
 };
 
 exports.adminBoard = (req, res) => {
-  User.findAll()
+  User.findAll({ attributes: { exclude: ['password'] } })
     .then(data => {
       res.send(data);
     })
