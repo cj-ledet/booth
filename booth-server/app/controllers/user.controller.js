@@ -60,7 +60,9 @@ exports.adminBoardUpdateUser = (req, res) => {
   const id = req.params.id;
  if ('roles' in req.body && req.body.roles.length > 0) {
   const roles = req.body.roles;
+  console.log("\nReached Roles\n");
   if (roles[0] == "addMod") {
+    console.log("\nReached addMod\n");
     Role.findByPk(2)
       .then(role => {
         User.addRole(role)
