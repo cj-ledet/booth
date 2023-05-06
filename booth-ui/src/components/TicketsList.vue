@@ -43,7 +43,7 @@
           <label><strong>User ID:</strong></label> {{ currentTicket.user_id }}
         </div>
         <div>
-          <label><strong>Open Case:</strong></label> {{ currentTicket.status }}
+          <label><strong>Open Ticket:</strong></label> {{ currentTicket.status }}
         </div>
 
         <a class="badge badge-warning"
