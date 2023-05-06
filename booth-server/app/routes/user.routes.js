@@ -29,4 +29,16 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+  
+  app.get(
+    "/api/test/admin/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.adminBoardGetUser
+  );
+  
+  app.put(
+    "/api/test/admin/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.adminBoardUpdateUser
+  );
 };
