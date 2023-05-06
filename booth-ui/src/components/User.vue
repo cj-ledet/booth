@@ -104,8 +104,8 @@ export default {
     
     updateMod(status) {
       let role = "";
-      if (status) { let role = { roles: [ "addMod" ] }; } 
-      else { let role = { roles: [ "removeMod" ] }; }
+      if (status) { role = { roles: [ "addMod" ] }; } 
+      else { role = { roles: [ "removeMod" ] }; }
       UserService.updateUser(this.currentUser.id, role)
         .then(response => {
           this.message = response.message;
