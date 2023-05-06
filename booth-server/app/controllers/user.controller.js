@@ -57,14 +57,11 @@ exports.adminBoardGetUser = (req, res) => {
 
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
-  console.log("\nReached Backend\n");
   const id = req.params.id;
- if ('roles' in req.body && req.body.roles.length > 0) {
-  const roles = req.body.roles;
-  console.log("\nReached Roles\n");
-  if (roles[0] == "addMod") {
-    console.log("\nReached addMod\n");
-    Role.findByPk(2)
+  if ('roles' in req.body && req.body.roles.length > 0) {
+    const roles = req.body.roles;
+    if (roles[0] == "addMod") {
+      Role.findByPk(2)
       .then(role => {
         User.addRole(role)
 	  .then(num => {
@@ -84,8 +81,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       })    
-  } else if (roles[0] == "removeMod") {
-    Role.findByPk(2)
+    } else if (roles[0] == "removeMod") {
+      Role.findByPk(2)
       .then(role => {
         User.removeRole(role)
 	  .then(num => {
@@ -105,8 +102,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (roles[0] == "addAdmin") {
-    Role.findByPk(3)
+    } else if (roles[0] == "addAdmin") {
+      Role.findByPk(3)
       .then(role => {
         User.addRole(role)
 	  .then(num => {
@@ -126,8 +123,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (roles[0] == "removeAdmin") {
-    Role.findByPk(3)
+    } else if (roles[0] == "removeAdmin") {
+      Role.findByPk(3)
       .then(role => {
         User.removeRole(role)
 	  .then(num => {
@@ -147,8 +144,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } 
- } else {
+    } 
+  } else {
     User.update(req.body, {
       where: { id: id }
     })
