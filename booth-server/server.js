@@ -64,6 +64,10 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
+app.get('/admin/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.get('/tickets/:id', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
