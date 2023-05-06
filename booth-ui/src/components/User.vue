@@ -105,8 +105,8 @@ export default {
     
     updateMod(status) {
       let role = "";
-      if (status) { role = "addMod"; } 
-      else { role = "removeMod"; }
+      if (status) { let role = { roles: [ "addMod" ] }; } 
+      else { let role = { roles: [ "removeMod" ] }; }
       UserService.updateUser(this.currentUser.id, role)
         .then(response => {
           this.message = response.message;
@@ -117,9 +117,8 @@ export default {
     },
     
     updateAdmin(status) {
-      let role = "";
-      if (status) { role = "addAdmin"; } 
-      else { role = "removeAdmin"; }
+      if (status) { let role = { roles: [ "addAdmin" ] }; } 
+      else { let role = { roles: [ "removeAdmin" ] }; }
       UserService.updateUser(this.currentUser.id, role)
         .then(response => {
           this.message = response.message;
