@@ -78,8 +78,11 @@ export default {
     retrieveTickets() {
       TicketDataService.getAll()
         .then(response => {
+          console.log(reponse.data);
           this.tickets = response.data.filter(ticket => ticket.status === true);
+          console.log(this.tickets);
           this.closedTickets = response.data.filter(ticket => ticket.status === false);
+          console.log(this.closedTickets);
         })
         .catch(e => {
           console.log(e);
