@@ -114,3 +114,4 @@ export default {
   max-width: 750px;
   margin: auto;
 }
+</style>
