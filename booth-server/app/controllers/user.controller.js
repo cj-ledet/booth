@@ -57,6 +57,7 @@ exports.adminBoardGetUser = (req, res) => {
 
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
+  console.log("\nReached Backend\n");
   const id = req.params.id;
  if ('roles' in req.body && req.body.roles.length > 0) {
   const roles = req.body.roles;
