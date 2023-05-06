@@ -47,7 +47,6 @@ exports.adminBoardGetUser = (req, res) => {
         });
       });
     })
-    .then
     .catch(err => {
       res.status(500).send({
 	message: "Error retrieving User with id=" + id
