@@ -16,6 +16,11 @@
       </div>
     </form>
     
+    <strong>Authorities:</strong>
+    <ul>
+      <li v-for="role in currentUser.roles" :key="role">{{role}}</li>
+    </ul>
+    
      <button type="submit" class="badge badge-success"
       @click="updateUser"
     >
