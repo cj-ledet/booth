@@ -2,6 +2,8 @@
   <div class="list row">
     <div class="col-md-6">
       <h4 style="color: white;">Tickets List</h4>
+      <button type="submit" class="badge badge-success" v-if="isMod" @click="closedTickets(true)">Closed Tickets</button>
+      <button v-else class="badge badge-primary mr-2" @click="closedTickets(false)">Open Tickets</button>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
@@ -56,22 +58,27 @@ export default {
   data() {
     return {
       tickets: [],
-      closedTickets: [],
       currentTicket: null,
       currentIndex: -1,
+      viewClosedTickets: false
     };
   },
   methods: {
     retrieveTickets() {
       TicketDataService.findByUser(this.$store.state.auth.user.id)
         .then(response => {
-          this.tickets = response.data.filter(ticket => ticket.status === true);
-          this.closedTickets = response.data.filter(ticket => ticket.status === false);
+          if (!this.viewClosedTickets) { this.tickets = response.data.filter(ticket => ticket.status === true); }
+          else { this.tickets = response.data.filter(ticket => ticket.status === false); }
         })
         .catch(e => {
           console.log(e);
         });
     },
+    
+    closedTickets(status) {
+      this.viewClosedTickets = status;
+      this.retrieveTickets();
+    }
 
     //Not currently called but built for possible future need to refresh the list view (ex. deleting items)
     refreshList() {
