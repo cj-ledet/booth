@@ -26,6 +26,33 @@
     >
       Update
     </button>
+    <br>
+    <button class="badge badge-primary mr-2"
+      v-if="isMod"
+      @click="updateMod(false)"
+    >
+      Remove Mod
+    </button>
+    
+    <button v-else class="badge badge-primary mr-2"
+      @click="updateMod(true)"
+    >
+      Add Mod
+    </button>
+    
+    <br>
+    <button class="badge badge-primary mr-2"
+      v-if="isAdmin"
+      @click="updateAdmin(false)"
+    >
+      Remove Admin
+    </button>
+    
+    <button v-else class="badge badge-primary mr-2"
+      @click="updateAdmin(true)"
+    >
+      Add Admin
+    </button>
     
     <p>{{ message }}</p>
   </div>
@@ -44,16 +71,24 @@ export default {
   data() {
     return {
       currentUser: null,
-      message: ''
+      message: '',
+      isMod: false,
+      isAdmin: false
     };
   },
   methods: {
     getUser(id) {
       UserService.getUser(id)
-        .then(response => {
-          this.currentUser = response.data;
-          console.log(response.data);
+        .then(user => {
+          this.currentUser = user.data;
+          this.currentUser.roles.forEach(function(role) {
+            if (role == "moderator") { this.isMod = true; } 
+            else { this.isMode = false; }
+            if (role == "admin") { this.isAdmin = true; } 
+            else { this.isAdmin = false; }
+          });
         })
+        .then(
         .catch(e => {
           console.log(e);
         });
@@ -62,13 +97,39 @@ export default {
     updateUser() {
       UserService.updateUser(this.currentUser.id, this.currentUser)
         .then(response => {
-          console.log(response.data);
-          this.message = 'The User was updated successfully!';
+          this.message = response.message;
         })
         .catch(e => {
-          console.log(e);
+          this.message = 'Error: Unable to update user!';
         });
     },
+    
+    updateMod(status) {
+      let role = "";
+      if (status) { role = "addMod"; } 
+      else { role = "removeMod"; }
+      UserService.updateUser(this.currentUser.id, role)
+        .then(response => {
+          this.message = response.message;
+        })
+        .catch(e => {
+          this.message = 'Error: Unable to update user role!';
+        });
+    },
+    
+    updateAdmin(status) {
+      let role = "";
+      if (status) { role = "addAdmin"; } 
+      else { role = "removeAdmin"; }
+      UserService.updateUser(this.currentUser.id, role)
+        .then(response => {
+          this.message = response.message;
+        })
+        .catch(e => {
+          this.message = 'Error: Unable to update user role!';
+        });
+    },
+    
   },
   mounted() {
     this.message = '';
