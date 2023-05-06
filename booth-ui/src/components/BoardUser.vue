@@ -78,7 +78,7 @@ export default {
     closedTickets(status) {
       this.viewClosedTickets = status;
       this.retrieveTickets();
-    }
+    },
 
     //Not currently called but built for possible future need to refresh the list view (ex. deleting items)
     refreshList() {
