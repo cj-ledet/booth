@@ -184,11 +184,7 @@ exports.adminBoardUpdateUser = (req, res) => {
 exports.moderatorBoard = (req, res) => {
   const user_id = req.query.user_id;
 
-  var condition = {
-  [Op.and]: [
-    user_id ? { user_id: { [Op.iLike]: `%${user_id}%` } } : null,
-    { status: true }
-  ]};
+  var condition = user_id ? { user_id: { [Op.iLike]: `%${user_id}%` } } : null;
 
   Ticket.findAll({ where: condition })
     .then(data => {
