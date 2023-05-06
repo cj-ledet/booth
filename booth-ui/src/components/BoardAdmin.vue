@@ -25,7 +25,7 @@
           <label><strong>Email:</strong></label> {{ currentUser.email }}
         </div>
         
-        //TODO Need to restructure backend admin API to accept user ID they would like to edit or view more in depth
+        /*TODO Need to restructure backend admin API to accept user ID they would like to edit or view more in depth*/
         <a class="badge badge-warning"
           :href="'/admin/' + currentUser.id" 
         >
@@ -64,7 +64,7 @@ export default {
         });
     },
 
-    //Not currently called but built for possible future need to refresh the list view (ex. deleting items)
+    /Not currently called but built for possible future need to refresh the list view (ex. deleting items)
     refreshList() {
       this.retrieveUsers();
       this.currentUser = null;
