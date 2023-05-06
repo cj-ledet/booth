@@ -47,6 +47,11 @@ const routes = [
       component: BoardAdmin,
     },
     {
+      path: "/admin/:id",
+      name: "admin",
+      component: BoardAdmin,
+    },
+    {
       path: "/mod",
       name: "moderator",
       component: BoardModerator,
