@@ -124,8 +124,8 @@ export default {
       UserService.updateUser(this.currentUser.id, role)
         .then(response => {
           this.message = response.message;
-          if (status) { this.isMod = true; }
-          else { this.isMod = false; }
+          if (status) { this.isAdmin = true; }
+          else { this.isAdmin = false; }
         })
         .catch(e => {
           this.message = 'Error: Unable to update user role!';
