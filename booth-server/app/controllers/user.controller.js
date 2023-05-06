@@ -59,7 +59,7 @@ exports.adminBoardGetUser = (req, res) => {
 exports.adminBoardUpdateUser = (req, res) => {
   const id = req.params.id;
   
-  if (req.body == "addMod") {
+  if (req.body.roles[0] == "addMod") {
     Role.findByPk(2)
       .then(role => {
         User.addRole(role)
@@ -80,7 +80,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       })    
-  } else if (req.body == "removeMod") {
+  } else if (req.body.roles[0] == "removeMod") {
     Role.findByPk(2)
       .then(role => {
         User.removeRole(role)
@@ -101,7 +101,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (req.body == "addAdmin") {
+  } else if (req.body.roles[0] == "addAdmin") {
     Role.findByPk(3)
       .then(role => {
         User.addRole(role)
@@ -122,7 +122,7 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
       }) 
-  } else if (req.body == "removeAdmin") {
+  } else if (req.body.roles[0] == "removeAdmin") {
     Role.findByPk(3)
       .then(role => {
         User.removeRole(role)
