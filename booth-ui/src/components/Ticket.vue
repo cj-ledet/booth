@@ -80,7 +80,6 @@ export default {
       TicketDataService.get(id)
         .then(response => {
           this.currentTicket = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
@@ -110,7 +109,6 @@ export default {
     updateTicket() {
       TicketDataService.update(this.currentTicket.id, this.currentTicket)
         .then(response => {
-          console.log(response.data);
           this.message = 'The ticket was updated successfully!';
         })
         .catch(e => {
