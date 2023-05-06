@@ -88,7 +88,6 @@ export default {
             else { this.isAdmin = false; }
           });
         })
-        .then(
         .catch(e => {
           console.log(e);
         });
