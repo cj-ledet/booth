@@ -57,14 +57,17 @@ exports.adminBoardGetUser = (req, res) => {
 
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id;	
+
   if ('roles' in req.body && req.body.roles.length > 0) {
     const roles = req.body.roles;
     if (roles[0] == "addMod") {
       Role.findByPk(2)
       .then(role => {
-        User.addRole(role)
-	  .then(num => {
+        User.findByPk(id)
+	.then(user => {
+	  user.addRole(role)
+	    .then(num => {
             if (num == 1) {
 	      res.send({
 	        message: "Moderator permissions successfully added to this user!"
@@ -80,6 +83,7 @@ exports.adminBoardUpdateUser = (req, res) => {
 	      message: "Error updating permissions for User with id=" + id
             });
           });
+	})
       })    
     } else if (roles[0] == "removeMod") {
       Role.findByPk(2)
