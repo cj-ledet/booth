@@ -67,8 +67,8 @@ exports.adminBoardUpdateUser = (req, res) => {
         User.findByPk(id)
 	.then(user => {
 	  user.addRole(role)
-	    .then(num => {
-            if (num == 1) {
+	    .then(response => {
+            if (!response) {
 	      res.send({
 	        message: "Moderator permissions successfully added to this user!"
 	      });
@@ -88,9 +88,11 @@ exports.adminBoardUpdateUser = (req, res) => {
     } else if (roles[0] == "removeMod") {
       Role.findByPk(2)
       .then(role => {
-        User.removeRole(role)
-	  .then(num => {
-            if (num == 1) {
+        User.findByPk(id)
+	.then(user => {
+	  user.removeRole(role)
+	    .then(response => {
+            if (!response) {
 	      res.send({
 	        message: "Moderator permissions successfully removed from this user!"
 	      });
@@ -105,13 +107,16 @@ exports.adminBoardUpdateUser = (req, res) => {
 	      message: "Error updating permissions for User with id=" + id
             });
           });
+	})
       }) 
     } else if (roles[0] == "addAdmin") {
       Role.findByPk(3)
       .then(role => {
-        User.addRole(role)
-	  .then(num => {
-            if (num == 1) {
+        User.findByPk(id)
+	.then(user => {
+	  user.addRole(role)
+	    .then(response => {
+            if (!response) {
 	      res.send({
 	        message: "Admin permissions successfully added to this user!"
 	      });
@@ -126,13 +131,16 @@ exports.adminBoardUpdateUser = (req, res) => {
 	      message: "Error updating permissions for User with id=" + id
             });
           });
+	})
       }) 
     } else if (roles[0] == "removeAdmin") {
       Role.findByPk(3)
       .then(role => {
-        User.removeRole(role)
-	  .then(num => {
-            if (num == 1) {
+        User.findByPk(id)
+	.then(user => {
+	  user.removeRole(role)
+	    .then(response => {
+            if (!response) {
 	      res.send({
 	        message: "Admin permissions successfully removed from this user!"
 	      });
@@ -147,8 +155,8 @@ exports.adminBoardUpdateUser = (req, res) => {
 	      message: "Error updating permissions for User with id=" + id
             });
           });
+	})
       }) 
-    } 
   } else {
     User.update(req.body, {
       where: { id: id }
