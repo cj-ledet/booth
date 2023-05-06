@@ -16,8 +16,6 @@ body{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	margin: 0;
-  	padding: 0;
 }
 header{
 	height: 80vh;
@@ -25,8 +23,6 @@ header{
 	background-size: cover;
 	background-position: center center;
 	position: relative;
-	margin: 0;
-  	padding: 0;
 }
 .welcome-text {
 	position: absolute;
@@ -36,10 +32,14 @@ header{
 	text-align: center;
 }
 .welcome-text h1 {
-	text-align: center;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 60px;
+	position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
 }
 .welcome-text h1 span {
 	color: #ff0000;
