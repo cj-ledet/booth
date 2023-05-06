@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import TicketDataService from "../services/TicketDataService";
+import UserService from "../services/user.service";
 export default {
   name: "tickets-list",
   data() {
@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     retrieveTickets() {
-      TicketDataService.getAll()
+      UserService.getModeratorBoard()
         .then(response => {
           this.tickets = response.data;
         })
@@ -93,7 +93,7 @@ export default {
     },
     
     searchUserTickets() {
-      TicketDataService.findByUser(this.user_id)
+      UserService.getModeratorBoardByUser(this.user_id)
         .then(response => {
           this.tickets = response.data;
         })
@@ -114,28 +114,3 @@ export default {
   max-width: 750px;
   margin: auto;
 }
-</style>
-/*
-import UserService from "../services/user.service";
-
-name: "Moderator",
-  data() {
-    return {
-      content: "",
-    };
-  },
-  
-  UserService.getModeratorBoard().then(
-      (response) => {
-        this.content = response.data;
-      },
-      (error) => {
-        this.content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-      }
-    );
-*/
