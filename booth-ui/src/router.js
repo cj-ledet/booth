@@ -49,7 +49,7 @@ const routes = [
     },
     {
       path: "/admin/:id",
-      name: "admin",
+      name: "user-details",
       component: User,
     },
     {
