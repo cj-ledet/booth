@@ -156,7 +156,8 @@ exports.adminBoardUpdateUser = (req, res) => {
             });
           });
 	})
-      }) 
+      })
+    } 
   } else {
     User.update(req.body, {
       where: { id: id }
