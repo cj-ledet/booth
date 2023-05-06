@@ -14,6 +14,8 @@
     </div>
     <div class="col-md-6">
       <h4 style="color: white;">Tickets List</h4>
+      <button type="submit" class="badge badge-success" v-if="!viewClosedTickets" @click="closedTickets(true)">View Closed Tickets</button>
+      <button v-else class="badge badge-primary mr-2" @click="closedTickets(false)">View Open Tickets</button>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
@@ -69,18 +71,24 @@ export default {
       tickets: [],
       currentTicket: null,
       currentIndex: -1,
-      user_id: ""
+      user_id: "",
+      viewClosedTickets: false
     };
   },
   methods: {
     retrieveTickets() {
       UserService.getModeratorBoard()
         .then(response => {
-          this.tickets = response.data;
+          if (!this.viewClosedTickets) { this.tickets = response.data.filter(ticket => ticket.status === true); }
+          else { this.tickets = response.data.filter(ticket => ticket.status === false); }
         })
         .catch(e => {
           console.log(e);
         });
+    },
+    closedTickets(status) {
+      this.viewClosedTickets = status;
+      this.retrieveTickets();
     },
     refreshList() {
       this.retrieveTickets();
@@ -95,7 +103,8 @@ export default {
     searchUserTickets() {
       UserService.getModeratorBoardByUser(this.user_id)
         .then(response => {
-          this.tickets = response.data;
+          if (!this.viewClosedTickets) { this.tickets = response.data.filter(ticket => ticket.status === true); }
+          else { this.tickets = response.data.filter(ticket => ticket.status === false); }
         })
         .catch(e => {
           console.log(e);
