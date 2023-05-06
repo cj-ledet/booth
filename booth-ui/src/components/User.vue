@@ -84,9 +84,7 @@ export default {
           console.log(user.data);
           this.currentUser.roles.forEach(role => {
             if (role == "MODERATOR") { this.isMod = true; } 
-            else { this.isMod = false; }
             if (role == "ADMIN") { this.isAdmin = true; } 
-            else { this.isAdmin = false; }
           });
         })
         .catch(e => {
