@@ -16,6 +16,8 @@ body{
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
+	margin: 0;
+  	padding: 0;
 }
 header{
 	height: 80vh;
@@ -23,6 +25,8 @@ header{
 	background-size: cover;
 	background-position: center center;
 	position: relative;
+	margin: 0;
+  	padding: 0;
 }
 .welcome-text {
 	position: absolute;
@@ -55,31 +59,3 @@ header{
 	color: #333;
 }
 </style>
-
-<script>
-import UserService from "../services/user.service";
-
-export default {
-  name: "Home",
-  data() {
-    return {
-      content: "",
-    };
-  },
-  mounted() {
-    UserService.getPublicContent().then(
-      (response) => {
-        this.content = response.data;
-      },
-      (error) => {
-        this.content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-      }
-    );
-  },
-};
-</script>
