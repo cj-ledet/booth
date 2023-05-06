@@ -64,7 +64,7 @@ export default {
         });
     },
 
-    /Not currently called but built for possible future need to refresh the list view (ex. deleting items)
+    /*Not currently called but built for possible future need to refresh the list view (ex. deleting items)*/
     refreshList() {
       this.retrieveUsers();
       this.currentUser = null;
