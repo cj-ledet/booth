@@ -7,7 +7,7 @@ const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardModerator = () => import("./components/BoardModerator.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
-const User = () => import("./components/User.vue")
+const User = () => import("./components/UserView.vue")
 
 const routes = [
     {
