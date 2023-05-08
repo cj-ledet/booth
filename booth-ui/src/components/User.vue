@@ -112,7 +112,8 @@ export default {
           else { this.isMod = false; }
         })
         .catch(e => {
-          this.message = 'Error: Unable to update user role!';
+          this.message = e.message;
+          //'Error: Unable to update user role!';
         });
         this.getUser(this.$route.params.id);
     },
