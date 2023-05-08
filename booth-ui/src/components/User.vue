@@ -128,7 +128,7 @@ export default {
           else { this.isAdmin = false; }
         })
         .catch(e => {
-          this.message = 'Error: Unable to update user role!';
+          this.message = e.message;
         });
         this.getUser(this.$route.params.id);
     },
