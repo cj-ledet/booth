@@ -62,9 +62,9 @@ exports.adminBoardUpdateUser = (req, res) => {
 	
   if (roles[0] == "addMod" || roles[0] == "removeMod" || roles[0] == "addAdmin" || roles[0] == "removeAdmin") {
     console.log("\nRoles Reached\n"); 
-    const role = 0;
-    const output = "";
-    const add = false;
+    let role = 0;
+    let output = "";
+    let add = false;
     switch(roles[0]) {
       case "addMod":
         role = 2;
