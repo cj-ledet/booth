@@ -68,7 +68,7 @@ exports.adminBoardUpdateUser = (req, res) => {
     const output = "";
     const add = false;
     switch(roles[0]) {
-      case "addMod:
+      case "addMod":
         role = 2;
 	output = "Moderator";
         add = true;
