@@ -57,92 +57,51 @@ exports.adminBoardGetUser = (req, res) => {
 
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
-  const id = req.params.id;	
-
+  const id = req.params.id;	 
+	
   if ('roles' in req.body && req.body.roles.length > 0) {
+    
+    console.log("\nRoles Reached\n"); 
+
     const roles = req.body.roles;
-    if (roles[0] == "addMod") {
-      Role.findByPk(2)
-      .then(role => {
+    const role;
+    const output;
+    const add;
+    switch(roles[0]) {
+      case "addMod:
+        role = 2;
+	output = "Moderator";
+        add = true;
+        break;
+      case "removeMod":
+        role = 2;
+	output = "Moderator";
+	add = false;
+        break;
+      case "addAdmin":
+	role = 3;
+	output = "Admin";
+	add = true;
+	break;
+      case "removeAdmin":
+	role = 3;
+	output = "Admin";
+	add = false;
+	break;
+      default:
+	res.send({ message: "Error with Role Change!"});
+    }
+  
+    if (add) {   
+      Role.findByPk(role)
+      .then(roleResult => {
         User.findByPk(id)
 	.then(user => {
-	  user.addRole(role)
+	  user.addRole(roleResult)
 	    .then(response => {
             if (!response) {
 	      res.send({
-	        message: "Moderator permissions successfully added to this user!"
-	      });
-            } else {
-	      res.send({
-	        message: `Cannot update permissions for User with id=${id}. Maybe User was not found!`
-	      });
-            }
-          })
-          .catch(err => {
-            res.status(500).send({
-	      message: "Error updating permissions for User with id=" + id
-            });
-          });
-	})
-      })    
-    } else if (roles[0] == "removeMod") {
-      Role.findByPk(2)
-      .then(role => {
-        User.findByPk(id)
-	.then(user => {
-	  user.removeRole(role)
-	    .then(response => {
-            if (!response) {
-	      res.send({
-	        message: "Moderator permissions successfully removed from this user!"
-	      });
-            } else {
-	      res.send({
-	        message: `Cannot update permissions for User with id=${id}. Maybe User was not found!`
-	      });
-            }
-          })
-          .catch(err => {
-            res.status(500).send({
-	      message: "Error updating permissions for User with id=" + id
-            });
-          });
-	})
-      }) 
-    } else if (roles[0] == "addAdmin") {
-      Role.findByPk(3)
-      .then(role => {
-        User.findByPk(id)
-	.then(user => {
-	  user.addRole(role)
-	    .then(response => {
-            if (!response) {
-	      res.send({
-	        message: "Admin permissions successfully added to this user!"
-	      });
-            } else {
-	      res.send({
-	        message: `Cannot update permissions for User with id=${id}. Maybe User was not found!`
-	      });
-            }
-          })
-          .catch(err => {
-            res.status(500).send({
-	      message: "Error updating permissions for User with id=" + id
-            });
-          });
-	})
-      }) 
-    } else if (roles[0] == "removeAdmin") {
-      Role.findByPk(3)
-      .then(role => {
-        User.findByPk(id)
-	.then(user => {
-	  user.removeRole(role)
-	    .then(response => {
-            if (!response) {
-	      res.send({
-	        message: "Admin permissions successfully removed from this user!"
+	        message: `${output} permissions successfully added to this user!`
 	      });
             } else {
 	      res.send({
@@ -157,8 +116,32 @@ exports.adminBoardUpdateUser = (req, res) => {
           });
 	})
       })
-    } 
-  } 
+    } else {
+      Role.findByPk(role)
+      .then(roleResult => {
+        User.findByPk(id)
+	.then(user => {
+	  user.removeRole(roleResult)
+	    .then(response => {
+            if (!response) {
+	      res.send({
+	        message: `${output} permissions successfully added to this user!`
+	      });
+            } else {
+	      res.send({
+	        message: `Cannot update permissions for User with id=${id}. Maybe User was not found!`
+	      });
+            }
+          })
+          .catch(err => {
+            res.status(500).send({
+	      message: "Error updating permissions for User with id=" + id
+            });
+          });
+	})
+      })	    
+     }
+    }
     User.update(req.body, {
       where: { id: id }
     })
@@ -178,7 +161,6 @@ exports.adminBoardUpdateUser = (req, res) => {
 	message: "Error updating User with id=" + id
       });
     });
-  
 };
 
 exports.moderatorBoard = (req, res) => {
