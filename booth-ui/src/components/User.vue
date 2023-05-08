@@ -22,7 +22,7 @@
     </ul>
     
      <button type="submit" class="badge badge-success"
-      @click="updateUser"
+      @click="updateUser()"
     >
       Update
     </button>
