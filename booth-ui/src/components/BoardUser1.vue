@@ -4,47 +4,70 @@
       <h4 style="color: white;">Tickets List</h4>
       <button type="submit" class="badge badge-success" v-if="!viewClosedTickets" @click="closedTickets(true)">View Closed Tickets</button>
       <button v-else class="badge badge-primary mr-2" @click="closedTickets(false)">View Open Tickets</button>
-      <ul class="list-group">
-        <li class="list-group-item"
-          :class="{ active: index == currentIndex }"
-          v-for="(ticket, index) in tickets"
-          :key="index"
-          @click="setActiveTicket(ticket, index)"
-        >{{ ticket.id }}🎟 {{ ticket.subject }}</li>
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Ticket ID</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Severity</th>
+            <th scope="col">Details</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Open Case</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(ticket, index) in tickets"
+              :key="index"
+              @click="setActiveTicket(ticket, index)"
+              :class="{ active: index == currentIndex }"
+            <td>{{ ticket.id }}🎟</td>
+            <td>{{ ticket.subject }}</td>
+            <td>{{ ticket.severity }}</td>
+            <td>{{ ticket.details }}</td>
+            <td>{{ ticket.user_id }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>
+              <a class="badge badge-warning"
+                :href="'/tickets/' + currentTicket.id"
+              >
+                Edit
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
     <div class="col-md-6" style="color: white;">
       <div v-if="currentTicket">
         <h4>Ticket</h4>
-        <div>
-          <label><strong>Ticket ID:</strong></label> {{ currentTicket.id }}
-        </div>
-        <div>
-          <label><strong>Subject:</strong></label> {{ currentTicket.subject }}
-        </div>
-        <div>
-          <label><strong>Severity:</strong></label> {{ currentTicket.severity }}
-        </div>
-        <div>
-          <label><strong>Details:</strong></label> {{ currentTicket.details }}
-        </div>
-        <div>
-          <label><strong>User ID:</strong></label> {{ currentTicket.user_id }}
-        </div>
-        <div>
-          <label><strong>Open Case:</strong></label> {{ currentTicket.status }}
-        </div>
-
-        <a class="badge badge-warning"
-          :href="'/tickets/' + currentTicket.id"
-        >
-          Edit
-        </a>
-      </div>
-      <div v-else>
-        <br />
-        <p style="color: white; font-size: 1.5em;">Select a Ticket...</p>
+        <table>
+          <tr>
+            <td><strong>Ticket ID:</strong></td>
+            <td>{{ currentTicket.id }}</td>
+          </tr>
+          <tr>
+            <td><strong>Subject:</strong></td>
+            <td>{{ currentTicket.subject }}</td>
+          </tr>
+          <tr>
+            <td><strong>Severity:</strong></td>
+            <td>{{ currentTicket.severity }}</td>
+          </tr>
+          <tr>
+            <td><strong>Details:</strong></td>
+            <td>{{ currentTicket.details }}</td>
+          </tr>
+          <tr>
+            <td><strong>User ID:</strong></td>
+            <td>{{ currentTicket.user_id }}</td>
+          </tr>
+          <tr>
+            <td><strong>Open Case:</strong></td>
+            <td>{{ currentTicket.status }}</td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -52,7 +75,6 @@
 
 <script>
 import TicketDataService from "../services/TicketDataService";
-
 export default {
   name: "tickets-list",
   data() {
@@ -79,14 +101,12 @@ export default {
       this.viewClosedTickets = status;
       this.retrieveTickets();
     },
-
     //Not currently called but built for possible future need to refresh the list view (ex. deleting items)
     refreshList() {
       this.retrieveTickets();
       this.currentTicket = null;
       this.currentIndex = -1;
     },
-
     setActiveTicket(ticket, index) {
       this.currentTicket = ticket;
       this.currentIndex = index;
@@ -99,9 +119,22 @@ export default {
 </script>
 
 <style>
-.list {
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  padding: 8px;
   text-align: left;
-  max-width: 750px;
-  margin: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #c9c7c7;
+}
+
+.table tr:hover {
+  background-color: #d9d7d7;
 }
 </style>
