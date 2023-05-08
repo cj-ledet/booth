@@ -90,7 +90,8 @@ exports.adminBoardUpdateUser = (req, res) => {
 	res.send({ message: "Error with Role Change!"});
     }
   
-    if (add) {   
+    if (add) { 
+      console.log("\nReached Add\n");  
       Role.findByPk(role)
       .then(roleResult => {
         User.findByPk(id)
@@ -115,6 +116,7 @@ exports.adminBoardUpdateUser = (req, res) => {
 	})
       })
     } else {
+      console.log("\nReached Remove\n");
       Role.findByPk(role)
       .then(roleResult => {
         User.findByPk(id)
