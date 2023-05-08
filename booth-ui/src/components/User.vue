@@ -94,10 +94,7 @@ export default {
     updateUser() {
       UserService.updateUser(this.currentUser.id, this.currentUser)
         .then(response => {
-          console.log(response);
-          console.log(response.message);
-          console.log(response.data);
-          this.message = response.message;
+          this.message = response.data.message;
         })
         .catch(e => {
           this.message = 'Error: Unable to update user!';
