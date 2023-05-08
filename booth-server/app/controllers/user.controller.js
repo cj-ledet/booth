@@ -58,12 +58,10 @@ exports.adminBoardGetUser = (req, res) => {
 //Update a User by the id in the request
 exports.adminBoardUpdateUser = (req, res) => {
   const id = req.params.id;	 
+  const roles = req.body.roles;
 	
-  if ('roles' in req.body && req.body.roles.length > 0) {
-    
+  if (roles[0] == "addMod" || roles[0] == "removeMod" || roles[0] == "addAdmin" || roles[0] == "removeAdmin") {
     console.log("\nRoles Reached\n"); 
-
-    const roles = req.body.roles;
     const role = 0;
     const output = "";
     const add = false;
