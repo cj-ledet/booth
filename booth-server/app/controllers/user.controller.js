@@ -64,8 +64,8 @@ exports.adminBoardUpdateUser = (req, res) => {
     console.log("\nRoles Reached\n"); 
 
     const roles = req.body.roles;
-    const role;
-    const output;
+    const role = 0;
+    const output = "";
     const add;
     switch(roles[0]) {
       case "addMod:
