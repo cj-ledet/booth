@@ -158,7 +158,7 @@ exports.adminBoardUpdateUser = (req, res) => {
 	})
       })
     } 
-  } else {
+  } 
     User.update(req.body, {
       where: { id: id }
     })
@@ -178,7 +178,7 @@ exports.adminBoardUpdateUser = (req, res) => {
 	message: "Error updating User with id=" + id
       });
     });
-  }
+  
 };
 
 exports.moderatorBoard = (req, res) => {
